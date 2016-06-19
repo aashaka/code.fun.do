@@ -48,7 +48,9 @@ function odauth(wasClicked) {
 }
 
 function onAuthCallback(anchor_url) {
+  console.log(anchor_url);
   var authInfo = getAuthInfoFromUrl(anchor_url);
+  console.log(authInfo);
   var token = authInfo.access_token;
   var expiry = parseInt(authInfo["expires_in"]);
   setCookie(token, expiry);
