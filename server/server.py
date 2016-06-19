@@ -25,8 +25,9 @@ class GetCategories(Resource):
 				data = data,
 				headers = {'Authorization': 'Token 1569c380f608e8bd6610360be707dce71c7dcb6a',
 				'Content-Type': 'application/json',
-				'Access-Control-Allow-Origin': '*',
-				'Access-Control-Allow-Methods': {'POST', 'GET', 'OPTIONS', 'PUT'}
+				'Access-Control-Allow-Origin': 'x-requested-with',
+				#'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': ['POST', 'GET', 'OPTIONS', 'PUT']
 				})
 			response = json.loads(response.text)
 
