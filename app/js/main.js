@@ -43,6 +43,7 @@ function onAuthenticated(token, authWindow) {
                         $.ajax({
                             cache : false,
                             type: "POST",
+                            crossDomain: true,
                             url: ' http://127.0.0.1:5000/GetCategories',
                             data: {text: text, name:name},
                             dataType: "json",

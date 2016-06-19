@@ -24,7 +24,10 @@ class GetCategories(Resource):
 				"https://api.monkeylearn.com/v2/classifiers/cl_oFKL5wft/classify/?",
 				data = data,
 				headers = {'Authorization': 'Token 1569c380f608e8bd6610360be707dce71c7dcb6a',
-				'Content-Type': 'application/json'})
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': {'POST', 'GET', 'OPTIONS', 'PUT'}
+				})
 			response = json.loads(response.text)
 
 			res1 = response.get('result', '')[0]
