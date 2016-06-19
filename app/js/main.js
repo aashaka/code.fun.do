@@ -15,7 +15,7 @@ function onAuthenticated(token, authWindow) {
   if (token) {
 
     (function($){
-      
+
       var odurl = "https://api.onedrive.com/v1.0/drive/root:/Documents/:";
       var odquery = "?expand=thumbnails,children(expand=thumbnails(select=large,c200x150_Crop))&access_token=" + token;
 
@@ -43,7 +43,7 @@ function onAuthenticated(token, authWindow) {
                         $.ajax({
                             cache : false,
                             type: "POST",
-                            url: '/',
+                            url: ' http://127.0.0.1:5000/GetCategories',
                             data: {text: text, name:name},
                             dataType: "json",
                             // jsonp: false,
@@ -99,7 +99,7 @@ function onAuthenticated(token, authWindow) {
                         highlight: "#FF5A5E ",
                         label: "Business"
                     },
-                    
+
                     {
                         value: count['Computers'],
                         color: "#00fe9c ",
@@ -130,8 +130,8 @@ function onAuthenticated(token, authWindow) {
                         highlight: "#FF5A5E ",
                         label: "Sport"
                     },
-                    
-                    
+
+
                     {
                         value: count['Games'],
                         color:"#f1583e ",
@@ -153,7 +153,7 @@ function onAuthenticated(token, authWindow) {
 
                        ];
 
-                     var myPie = new Chart(document.getElementById("myChart").getContext("2d")).Doughnut(pieData,{percentageInnerCutout : 80});  
+                     var myPie = new Chart(document.getElementById("myChart").getContext("2d")).Doughnut(pieData,{percentageInnerCutout : 80});
                      console.log(myPie);
                   }
                 }

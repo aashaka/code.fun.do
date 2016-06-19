@@ -9,7 +9,7 @@
         var url_hash = window.location.hash;
         console.log(url_hash);
         try { window.opener.onAuthCallback(url_hash); } catch (err) {}
-        //window.close();
+        window.close();
         </script>
     </body>
 </html>
