@@ -47,17 +47,17 @@ function odauth(wasClicked) {
   }
 }
 
-function onAuthCallback() {
-  var authInfo = getAuthInfoFromUrl();
+function onAuthCallback(anchor_url) {
+  var authInfo = getAuthInfoFromUrl(anchor_url);
   var token = authInfo.access_token;
   var expiry = parseInt(authInfo["expires_in"]);
   setCookie(token, expiry);
   window.opener.onAuthenticated(token, window);
 }
 
-function getAuthInfoFromUrl() {
-  if (window.location.hash) {
-    var authResponse = window.location.hash.substring(1);
+function getAuthInfoFromUrl(anchor_url) {
+  if (anchor_url) {
+    var authResponse = anchor_url.substring(1);
     var authInfo = JSON.parse(
       '{"' + authResponse.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
       function(key, value) { return key === "" ? value : decodeURIComponent(value); });

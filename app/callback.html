@@ -6,7 +6,8 @@
     <body>
         <script src="odauth.js"></script>
         <script>
-          onAuthCallback();
+        try { window.opener.onAuthCallback(window.location.hash); } catch (err) {}
+        window.close();
         </script>
     </body>
 </html>
