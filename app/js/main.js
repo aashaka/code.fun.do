@@ -54,7 +54,7 @@ function onAuthenticated(token, authWindow) {
                                 console.log(cat);
                                 var fname = response['name'];
                                 var tag_list = response['tags'];
-                                var class_name = '.' + cat + '-cat';
+                                var class_name = '.' + cat.toLowerCase() + '-cat';
                                 var tags = '';
                                 $.each(tag_list, function(t,tg){
                                   // tags = tags + '<span> ' + tg + ' </span>'
