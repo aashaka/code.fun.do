@@ -43,8 +43,7 @@ function onAuthenticated(token, authWindow) {
                         $.ajax({
                             cache : false,
                             type: "POST",
-                            crossDomain: true,
-                            url: ' http://127.0.0.1:5000/GetCategories',
+                            url: 'http://127.0.0.1:5000/GetCategories',
                             data: {text: text, name:name},
                             dataType: "json",
                             // jsonp: false,
@@ -52,9 +51,10 @@ function onAuthenticated(token, authWindow) {
                             success: function (response) {
                               if(response['success'] == 1 ){
                                 var cat = response['folder_name'];
+                                console.log(cat);
                                 var fname = response['name'];
                                 var tag_list = response['tags'];
-                                var id = '#' + cat + ' .list';
+                                var class_name = '.' + cat + '-cat';
                                 var tags = '';
                                 $.each(tag_list, function(t,tg){
                                   // tags = tags + '<span> ' + tg + ' </span>'
@@ -62,7 +62,7 @@ function onAuthenticated(token, authWindow) {
                                   // console.log(tg);
                                 });
                                 var item = '<div class="listitem"><span> ' + fname + '</span>' + tags + ' </div>';
-                                $(id).append(item);
+                                $(class_name).append(item);
                                 count[cat]++;
                               }
                               else{
