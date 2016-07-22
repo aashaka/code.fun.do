@@ -1,5 +1,6 @@
 var server_endpoint = "http://localhost:8000";
 var count = [];
+var classified = [];
 count['Arts']=0;
 count['Games']=0;
 count['Computers'] = 0;
@@ -24,7 +25,7 @@ function onAuthenticated(token, authWindow) {
         dataType: 'json',
         success: function(data) {
           if (data) {
-            // console.log(data);
+            console.log(data);
             var children = data.children;
             // $.each(children, function(i, item) {
             var delay = 500;
@@ -35,6 +36,7 @@ function onAuthenticated(token, authWindow) {
                     console.log(children.length);
                     // get the next id, and remove it from the array...
                     var item = children[0];
+                    console.log(item);
                     children.shift();
                     var name = item.name;
                     var url = item['@content.downloadUrl'];
@@ -85,6 +87,7 @@ function onAuthenticated(token, authWindow) {
                       console.log(name);
                     });
                   if(children.length == 0){
+
                     $('#loading').hide();
                     $('#done').show();
                              var pieData = [
@@ -161,7 +164,7 @@ function onAuthenticated(token, authWindow) {
             }
             callAjax();
             // });
-            // $('#myChart').show();
+            $('#myChart').show();
           } else {
             alert("Data not recieved");
           }

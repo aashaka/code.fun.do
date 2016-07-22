@@ -47,7 +47,7 @@ class GetCategories(Resource):
 			sortedlist = sorted(all_responses, key=itemgetter('p'), reverse=True)
 			cat = sortedlist[0].get('className')
 			result = {}
-			result['folder_name']= cat.lower()
+			result['folder_name']= cat
 			result['success'] = 1
 			result['name'] = name
 			result['tags'] = tags
