@@ -96,7 +96,7 @@ function onAuthenticated(token, authWindow) {
                       $.ajax({
                         headers: {'Content-Type':'application/json'},
                         url: cust_url + id,
-                        type: patch,
+                        type: 'PATCH',
                         data: { "parentReference" : {"path": path}},
                         dataType: "json",
                         success: function(response) {
