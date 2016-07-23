@@ -36,8 +36,8 @@ function onAuthenticated(token, authWindow) {
                     console.log(children.length);
                     // get the next id, and remove it from the array...
                     console.log(item);
-                    item_id = item.id;
                     children.shift();
+                    var item_id = item.id;
                     var name = item.name;
                     var url = item['@content.downloadUrl'];
                     $.get(url, function(text){
