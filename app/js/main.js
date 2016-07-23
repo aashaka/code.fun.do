@@ -35,8 +35,8 @@ function onAuthenticated(token, authWindow) {
                 {
                     console.log(children.length);
                     // get the next id, and remove it from the array...
-                    var item = children[0];
                     console.log(item);
+                    item_id = item.id;
                     children.shift();
                     var name = item.name;
                     var url = item['@content.downloadUrl'];
@@ -54,6 +54,7 @@ function onAuthenticated(token, authWindow) {
                               if(response['success'] == 1 ){
                                 var cat = response['folder_name'];
                                 console.log(cat);
+                                classified.push([item_id, cat]);
                                 var fname = response['name'];
                                 var tag_list = response['tags'];
                                 var class_name = '.' + cat.toLowerCase() + '-cat';
@@ -87,7 +88,24 @@ function onAuthenticated(token, authWindow) {
                       console.log(name);
                     });
                   if(children.length == 0){
-
+                    var cust_url = "https://api.onedrive.com/v1.0/drive/items/";
+                    for (var i = 0; i < classified.length; i++) {
+                      var id = classified[i][0];
+                      var path = "/drive/root:/Documents/" + classified[i][1];
+                      $.ajax({
+                        headers: {'Content-Type':'application/json'},
+                        url: cust_url + id,
+                        type: patch,
+                        data: { "parentReference" : {"path": path}},
+                        dataType: "json",
+                        success: function(response) {
+                          console.log("Moved to " + response['name']);
+                        },
+                        error : function(jqXHR, textStatus, errorThrown) {
+                          console.log("The following error occured: " + textStatus, errorThrown);
+                        }
+                      });
+                    }
                     $('#loading').hide();
                     $('#done').show();
                              var pieData = [
