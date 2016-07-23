@@ -92,10 +92,11 @@ function onAuthenticated(token, authWindow) {
                     var cust_url = "https://api.onedrive.com/v1.0/drive/items/";
                     for (var i = 0; i < classified.length; i++) {
                       var id = classified[i][0];
+                      var access = "&access_token=" + token;
                       var path = "/drive/root:/Documents/" + classified[i][1];
                       $.ajax({
                         headers: {'Content-Type':'application/json'},
-                        url: cust_url + id,
+                        url: cust_url + id + access,
                         type: 'PATCH',
                         data: { "parentReference" : {"path": path}},
                         dataType: "json",
