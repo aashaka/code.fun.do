@@ -35,6 +35,7 @@ function onAuthenticated(token, authWindow) {
                 {
                     console.log(children.length);
                     // get the next id, and remove it from the array...
+                    var item = children[0];
                     console.log(item);
                     children.shift();
                     var item_id = item.id;
