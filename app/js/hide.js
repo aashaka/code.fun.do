@@ -9,7 +9,7 @@ $(document).ready(function()
 		$("#arts").click(function()
 			{
 				$(".main-content").css("display", "none");
-				$("#art-content").css("display", "block");
+				$("#arts-content").css("display", "block");
 			}
 			);
 		$("#business").click(function()
