@@ -624,4 +624,8 @@ body {
 .main-content{
 	position: relative;
 	margin-left: 20%;
-}	
+}
+
+div.main-content{
+  margin-left: 25%;
+}

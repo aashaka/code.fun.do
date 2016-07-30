@@ -140,16 +140,16 @@ function onAuthenticated(token, authWindow) {
                         count['Recreation']
                       ],
                         backgroundColor: [
-                          "#ce57a0 ",
-                          "#00aeef",
-                          "#00fe9c",
-                          "#78c5ee",
-                          "#00b48d",
-                          "#ff6d00",
-                          "#8252b1",
-                          "#f1583e",
-                          "#abb48d",
-                          "#f16690"
+                          "#CE57A0 ",
+                          "#00AEEF",
+                          "#00FE9C",
+                          "#78C5EE",
+                          "#00B48D",
+                          "#FF6D00",
+                          "#8252B1",
+                          "#F1583E",
+                          "#ABB48D",
+                          "#F16690"
                         ],
             hoverBackgroundColor: [
                 "#FF6384",
@@ -233,12 +233,12 @@ function onAuthenticated(token, authWindow) {
                   //
                   //    ];
                      var ctx = document.getElementById("myChart");
+                     ctx.innerHTML = "";
                      var myDoughnutChart = new Chart(ctx, {
                        type: 'doughnut',
                        data: data
                      });
                      console.log(myDoughnutChart);
-                   myChart.innerHTML = myDoughnutChart;
                    $('#myChart').show();
                 }
             }
