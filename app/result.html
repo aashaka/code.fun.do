@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+
+    <script type="text/javascript" src="js/Chart.js"></script>
+    <script id="odauth" src="js/odauth.js"
+       clientId="000000004818B361" scopes="onedrive.readwrite wl.signin"
+       redirectUri="http://aashaka.github.io/code.fun.do/app/callback.html"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <header class="main-content" id="declutter-content">
+      <div class="header-content">
+          <div class="header-content-inner">
+              <h1>Your Favorite Source for Files Organisation</h1>
+              <hr>
+              <p>You are just a click away to clutterless heaven. Organise your OneDrive files into folders which are easy to remember.</p>
+          </div>
+          <div>
+                      <span  id ="organiseNow" class="btn btn-default btn-xl" onclick='odauth(true);'>Organise!</span>
+                      <hr class="light">
+          </div>
+      </div>
+    </header>
+  <div class="nav-side-menu">
+      <div class="brand">Declutter</div>
+          <div class="menu-list">
+
+            <ul id="menu-content" class="menu-content collapse.in out">
+              <li id="declutter">
+                <a href="#">
+                <i class="fa fa-dashboard fa-lg"></i> Home
+                </a>
+              </li>
+
+              <li  data-toggle="collapse" data-target="#products" class="collapsed">
+                <a href="#"><i class="fa fa-gift fa-lg"></i> Categories <span class="arrow"></span></a>
+              </li>
+              <ul class="sub-menu collapse" id="products">
+                  <li id="arts"><a href="#">Arts</a></li>
+                  <li id="business"><a href="#">Business</a></li>
+                  <li id="computers"><a href="#">Computers</a></li>
+                  <li id="games"><a href="#">Games</a></li>
+                  <li id="health"><a href="#">Health</a></li>
+                  <li id="home"><a href="#">Home</a></li>
+                  <li id="science"><a href="#">Science</a></li>
+                  <li id="society"><a href="#">Society</a></li>
+                  <li id="sports"><a href="#">Sports</a></li>
+                  <li id="recreation"><a href="#">Recreation</a></li>
+              </ul>
+          </ul>
+
+          </div>
+      </div>
+
+      <div class="main-content" id="arts-content">Arts</div>
+      <div class="main-content" id="business-content">Business</div>
+      <div class="main-content" id="computers-content">Computers</div>
+      <div class="main-content" id="games-content">Games</div>
+      <div class="main-content" id="health-content">Health</div>
+      <div class="main-content" id="home-content">Home</div>
+      <div class="main-content" id="science-content">Science</div>
+      <div class="main-content" id="society-content">Society</div>
+      <div class="main-content" id="sports-content">Sports</div>
+      <div class="main-content" id="recreation-content">Recreation</div>
+
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/creative.js"></script>
+    <script src="js/hide.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+
+</html>
