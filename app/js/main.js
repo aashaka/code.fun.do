@@ -11,6 +11,7 @@ count['Society'] = 0;
 count['Home'] = 0;
 count['Health']=0;
 count['Business']=0;
+var myChart;
 function onAuthenticated(token, authWindow) {
   $('#loading').show();
   if (token) {
@@ -58,7 +59,7 @@ function onAuthenticated(token, authWindow) {
                                 classified.push([item_id, cat]);
                                 var fname = response['name'];
                                 var tag_list = response['tags'];
-                                var class_name = '.' + cat.toLowerCase() + '-cat';
+                                var id_name = '#' + cat.toLowerCase() + '-content';
                                 var tags = '';
                                 $.each(tag_list, function(t,tg){
                                   // tags = tags + '<span> ' + tg + ' </span>'
@@ -66,15 +67,15 @@ function onAuthenticated(token, authWindow) {
                                   // console.log(tg);
                                 });
                                 var item = '<div class="listitem"><span> ' + fname + '</span>' + tags + ' </div>';
-                                $(class_name).append(item);
+                                $(id_name).append(item);
                                 count[cat]++;
                               }
                               else{
                                 var cat = 'Arts';
                                 var fname = name;
-                                var id = '#' + cat + ' .list';
+                                var id = '#declutter-content';
                                 var tags = '';
-                                var item = '<div class="listitem"><span> ' + fname + '</span>' + tags + ' </div>';
+                                var item = '<div class="listitem"><span> ' + fname + '</span> couldn\'t be classified </div>';
                                 $(id).append(item);
                               }
                               setTimeout(callAjax, delay);
@@ -88,98 +89,100 @@ function onAuthenticated(token, authWindow) {
                       }
                       console.log(name);
                     });
-                  if(children.length == 0){
-                    var cust_url = "https://api.onedrive.com/v1.0/drive/items/";
-                    for (var i = 0; i < classified.length; i++) {
-                      var id = classified[i][0];
-                      var access = "?access_token=" + token;
-                      var path = "/drive/root:/Documents/" + classified[i][1];
-                      $.ajax({
-                        headers: {'Content-Type':'application/json'},
-                        url: cust_url + id + access,
-                        type: 'PATCH',
-                        data: { "parentReference" : {"path": path}},
-                        dataType: "json",
-                        success: function(response) {
-                          console.log("Moved to " + response['name']);
-                        },
-                        error : function(jqXHR, textStatus, errorThrown) {
-                          console.log("The following error occured: " + textStatus, errorThrown);
-                        }
-                      });
-                    }
-                    $('#loading').hide();
-                    $('#done').show();
-                             var pieData = [
-                             {
-                        value: count['Arts'],
-                        color:"#ce57a0 ",
-                        highlight: "#FF5A5E ",
-                        label: "Art"
-                    },
-                     {
-                        value: count['Business'],
-                        color:"#00aeef ",
-                        highlight: "#FF5A5E ",
-                        label: "Business"
-                    },
-
-                    {
-                        value: count['Computers'],
-                        color: "#00fe9c ",
-                        highlight: "#FFC870 ",
-                        label: "Computers"
-                    },
-                    {
-                        value: count['Society'],
-                        color:"#78c5ee ",
-                        highlight: "#FF5A5E ",
-                        label: "Social"
-                    },
-                    {
-                        value: count['Science'],
-                        color:"#00b48d ",
-                        highlight: "#FF5A5E ",
-                        label: "Science"
-                    },
-                    {
-                        value: count['Recreation'],
-                        color:"#ff6d00 ",
-                        highlight: "#FF5A5E ",
-                        label: "Recreation"
-                    },
-                    {
-                        value: count['Sports'],
-                        color:"#8252b1 ",
-                        highlight: "#FF5A5E ",
-                        label: "Sport"
-                    },
-
-
-                    {
-                        value: count['Games'],
-                        color:"#f1583e ",
-                        highlight: "#FF5A5E ",
-                        label: "Games"
-                    },
-                    {
-                        value: count['Health'],
-                        color: "#abb48d ",
-                        highlight: "#5AD3D1 ",
-                        label: "Health"
-                    },
-                    {
-                        value: count['Home'],
-                        color: "#f16690 ",
-                        highlight: "#FFC870 ",
-                        label: "Home"
-                    }
-
-                       ];
-
-                     var myPie = new Chart(document.getElementById("myChart").getContext("2d")).Doughnut(pieData,{percentageInnerCutout : 80});
-                     console.log(myPie);
                   }
+                if(children.length == 0){
+                  // var cust_url = "https://api.onedrive.com/v1.0/drive/items/";
+                  // for (var i = 0; i < classified.length; i++) {
+                  //   var id = classified[i][0];
+                  //   var access = "?access_token=" + token;
+                  //   var path = "/drive/root:/Documents/" + classified[i][1];
+                  //   $.ajax({
+                  //     headers: {'Content-Type':'application/json'},
+                  //     url: cust_url + id + access,
+                  //     type: 'PATCH',
+                  //     data: { "parentReference" : {"path": path}},
+                  //     dataType: "json",
+                  //     success: function(response) {
+                  //       console.log("Moved to " + response['name']);
+                  //     },
+                  //     error : function(jqXHR, textStatus, errorThrown) {
+                  //       console.log("The following error occured: " + textStatus, errorThrown);
+                  //     }
+                  //   });
+                  // }
+                  $('#loading').hide();
+                  $('#done').show();
+                           var pieData = [
+                           {
+                      value: count['Arts'],
+                      color:"#ce57a0 ",
+                      highlight: "#FF5A5E ",
+                      label: "Art"
+                  },
+                   {
+                      value: count['Business'],
+                      color:"#00aeef ",
+                      highlight: "#FF5A5E ",
+                      label: "Business"
+                  },
+
+                  {
+                      value: count['Computers'],
+                      color: "#00fe9c ",
+                      highlight: "#FFC870 ",
+                      label: "Computers"
+                  },
+                  {
+                      value: count['Society'],
+                      color:"#78c5ee ",
+                      highlight: "#FF5A5E ",
+                      label: "Social"
+                  },
+                  {
+                      value: count['Science'],
+                      color:"#00b48d ",
+                      highlight: "#FF5A5E ",
+                      label: "Science"
+                  },
+                  {
+                      value: count['Recreation'],
+                      color:"#ff6d00 ",
+                      highlight: "#FF5A5E ",
+                      label: "Recreation"
+                  },
+                  {
+                      value: count['Sports'],
+                      color:"#8252b1 ",
+                      highlight: "#FF5A5E ",
+                      label: "Sport"
+                  },
+
+
+                  {
+                      value: count['Games'],
+                      color:"#f1583e ",
+                      highlight: "#FF5A5E ",
+                      label: "Games"
+                  },
+                  {
+                      value: count['Health'],
+                      color: "#abb48d ",
+                      highlight: "#5AD3D1 ",
+                      label: "Health"
+                  },
+                  {
+                      value: count['Home'],
+                      color: "#f16690 ",
+                      highlight: "#FFC870 ",
+                      label: "Home"
+                  }
+
+                     ];
+
+                   var myPie = new Chart(document.getElementById("myChart").getContext("2d")).Doughnut(pieData,{percentageInnerCutout : 80});
+                   console.log(myPie);
+                   myChart = document.getElementById('myChart');
+                   myChart.innerHTML = myPie;
                 }
             }
             callAjax();

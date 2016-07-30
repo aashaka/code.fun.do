@@ -1,42 +1,42 @@
-$btn = document.getElementById('organiseNow');
+//$btn = document.getElementById('organiseNow');
 //$btn.onClick(function () {
-$(document).ready(function(){
-    var pieData = [
-        {
-          value: 10,
-          color:"#565093"
-        },
-        {
-          value : 40,
-          color : "#3F9F3F"
-        },
-        {
-          value: 5,
-          color:"#565093"
-        },
-        {
-          value: 10,
-          color:"#3F9F3F"
-        },
-        {
-          value: 20,
-          color:"#565093"
-        },
-        {
-          value: 10,
-          color:"#3F9F3F"
-        },
-        {
-          value: 5,
-          color:"#565093"
-        }
-      ];
-
-    var myPie = new Chart(document.getElementById("myChart").getContext("2d")).Doughnut(pieData,{percentageInnerCutout : 80});
-   // var myChart = document.getElementById('myChart');
-
-//myChart.innerHTML = myPie;
-});
+// $(document).ready(function(){
+//     var pieData = [
+//         {
+//           value: 10,
+//           color:"#565093"
+//         },
+//         {
+//           value : 40,
+//           color : "#3F9F3F"
+//         },
+//         {
+//           value: 5,
+//           color:"#565093"
+//         },
+//         {
+//           value: 10,
+//           color:"#3F9F3F"
+//         },
+//         {
+//           value: 20,
+//           color:"#565093"
+//         },
+//         {
+//           value: 10,
+//           color:"#3F9F3F"
+//         },
+//         {
+//           value: 5,
+//           color:"#565093"
+//         }
+//       ];
+//
+//     var myPie = new Chart(document.getElementById("myChart").getContext("2d")).Doughnut(pieData,{percentageInnerCutout : 80});
+//    // var myChart = document.getElementById('myChart');
+//
+// //myChart.innerHTML = myPie;
+// });
 
 /*!
  * Chart.js
