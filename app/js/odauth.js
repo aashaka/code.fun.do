@@ -33,7 +33,6 @@
 
 function odauth(wasClicked) {
   var token = getTokenFromCookie();
-  //var token = token_string;
   if (token) {
     onAuthenticated(token);
   }

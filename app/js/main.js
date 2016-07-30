@@ -66,7 +66,7 @@ function onAuthenticated(token, authWindow) {
                                   tags = tags + '<span class="btn btn-default btn-xl" style="float:right;margin:5px;"> ' + tg + ' </span>'
                                   // console.log(tg);
                                 });
-                                var item = '<div class="listitem"><span> ' + fname + '</span>' + tags + ' </div>';
+                                var item = '<div class="listitem"><span> ' + fname + '</span>' + tags + ' </div><hr style="width: 50%; text-align: center;">';
                                 $(id_name).append(item);
                                 count[cat]++;
                               }
