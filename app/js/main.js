@@ -235,7 +235,7 @@ function onAuthenticated(token, authWindow) {
                      var ctx = document.getElementById("myChart");
                      var myDoughnutChart = new Chart(ctx, {
                        type: 'doughnut',
-                       data: pieData
+                       data: data
                      });
                      console.log(myDoughnutChart);
                    myChart.innerHTML = myDoughnutChart;
