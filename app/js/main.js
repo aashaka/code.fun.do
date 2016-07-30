@@ -63,10 +63,10 @@ function onAuthenticated(token, authWindow) {
                                 var tags = '';
                                 $.each(tag_list, function(t,tg){
                                   // tags = tags + '<span> ' + tg + ' </span>'
-                                  tags = tags + '<span class="btn btn-default btn-xl" style="float:right;margin:5px;"> ' + tg + ' </span>'
+                                  tags = tags + '<span class="btn btn-default btn-xl" style="float:right;margin:2px;"> ' + tg + ' </span>'
                                   // console.log(tg);
                                 });
-                                var item = '<div class="listitem"><span> ' + fname + '</span>' + tags + ' </div><hr style="width: 50%; text-align: center;">';
+                                var item = '<div class="listitem"><span> ' + fname + '</span>' + tags + ' </div><hr style="width: 50%; text-align: center;"><br/>';
                                 $(id_name).append(item);
                                 count[cat]++;
                               }
