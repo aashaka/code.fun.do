@@ -112,6 +112,7 @@ function onAuthenticated(token, authWindow) {
                   // }
                   $('#loading').hide();
                   $('#done').show();
+
                            var pieData = [
                            {
                       value: count['Arts'],
@@ -178,16 +179,19 @@ function onAuthenticated(token, authWindow) {
                   }
 
                      ];
-
-                   var myPie = new Chart(document.getElementById("myChart").getContext("2d")).Doughnut(pieData,{percentageInnerCutout : 80});
-                   console.log(myPie);
-                   myChart = document.getElementById('myChart');
-                   myChart.innerHTML = myPie;
+                     var ctx = document.getElementById("myChart");
+                     var myDoughnutChart = new Chart(ctx, {
+                       type: 'doughnut',
+                       data: pieData
+                     });
+                     console.log(myDoughnutChart);
+                   myChart.innerHTML = myDoughnutChart;
+                   $('#myChart').show();
                 }
             }
             callAjax();
             // });
-            $('#myChart').show();
+
           } else {
             alert("Data not recieved");
           }
