@@ -112,73 +112,126 @@ function onAuthenticated(token, authWindow) {
                   // }
                   $('#loading').hide();
                   $('#done').show();
+                  var data = {
+                    labels: [
+                      "Arts",
+                      "Business",
+                      "Computers",
+                      "Games",
+                      "Health",
+                      "Home",
+                      "Society",
+                      "Science",
+                      "Sports",
+                      "Recreation"
+                    ],
+                    datasets: [
+                      {
+                        data: [
+                        count['Arts'],
+                        count['Business'],
+                        count['Computers'],
+                        count['Games'],
+                        count['Health'],
+                        count['Home'],
+                        count['Society'],
+                        count['Science'],
+                        count['Sports'],
+                        count['Recreation']
+                      ],
+                        backgroundColor: [
+                          "#ce57a0 ",
+                          "#00aeef",
+                          "#00fe9c",
+                          "#78c5ee",
+                          "#00b48d",
+                          "#ff6d00",
+                          "#8252b1",
+                          "#f1583e",
+                          "#abb48d",
+                          "#f16690"
+                        ],
+            hoverBackgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56",
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56",
+                "#FF6384",
+                "#36A2EB",
+                "#FF6384",
+                "#FFCE56"
+            ]
+        }]
+};
 
-                           var pieData = [
-                           {
-                      value: count['Arts'],
-                      color:"#ce57a0 ",
-                      highlight: "#FF5A5E ",
-                      label: "Art"
-                  },
-                   {
-                      value: count['Business'],
-                      color:"#00aeef ",
-                      highlight: "#FF5A5E ",
-                      label: "Business"
-                  },
-
-                  {
-                      value: count['Computers'],
-                      color: "#00fe9c ",
-                      highlight: "#FFC870 ",
-                      label: "Computers"
-                  },
-                  {
-                      value: count['Society'],
-                      color:"#78c5ee ",
-                      highlight: "#FF5A5E ",
-                      label: "Social"
-                  },
-                  {
-                      value: count['Science'],
-                      color:"#00b48d ",
-                      highlight: "#FF5A5E ",
-                      label: "Science"
-                  },
-                  {
-                      value: count['Recreation'],
-                      color:"#ff6d00 ",
-                      highlight: "#FF5A5E ",
-                      label: "Recreation"
-                  },
-                  {
-                      value: count['Sports'],
-                      color:"#8252b1 ",
-                      highlight: "#FF5A5E ",
-                      label: "Sport"
-                  },
-
-
-                  {
-                      value: count['Games'],
-                      color:"#f1583e ",
-                      highlight: "#FF5A5E ",
-                      label: "Games"
-                  },
-                  {
-                      value: count['Health'],
-                      color: "#abb48d ",
-                      highlight: "#5AD3D1 ",
-                      label: "Health"
-                  },
-                  {
-                      value: count['Home'],
-                      color: "#f16690 ",
-                      highlight: "#FFC870 ",
-                      label: "Home"
-                  }
-
-                     ];
+                  //          var pieData = [
+                  //          {
+                  //     value: count['Arts'],
+                  //     color:"#ce57a0 ",
+                  //     highlight: "#FF5A5E ",
+                  //     label: "Art"
+                  // },
+                  //  {
+                  //     value: count['Business'],
+                  //     color:"#00aeef ",
+                  //     highlight: "#FF5A5E ",
+                  //     label: "Business"
+                  // },
+                  //
+                  // {
+                  //     value: count['Computers'],
+                  //     color: "#00fe9c ",
+                  //     highlight: "#FFC870 ",
+                  //     label: "Computers"
+                  // },
+                  // {
+                  //     value: count['Society'],
+                  //     color:"#78c5ee ",
+                  //     highlight: "#FF5A5E ",
+                  //     label: "Social"
+                  // },
+                  // {
+                  //     value: count['Science'],
+                  //     color:"#00b48d ",
+                  //     highlight: "#FF5A5E ",
+                  //     label: "Science"
+                  // },
+                  // {
+                  //     value: count['Recreation'],
+                  //     color:"#ff6d00 ",
+                  //     highlight: "#FF5A5E ",
+                  //     label: "Recreation"
+                  // },
+                  // {
+                  //     value: count['Sports'],
+                  //     color:"#8252b1 ",
+                  //     highlight: "#FF5A5E ",
+                  //     label: "Sport"
+                  // },
+                  //
+                  //
+                  // {
+                  //     value: count['Games'],
+                  //     color:"#f1583e ",
+                  //     highlight: "#FF5A5E ",
+                  //     label: "Games"
+                  // },
+                  // {
+                  //     value: count['Health'],
+                  //     color: "#abb48d ",
+                  //     highlight: "#5AD3D1 ",
+                  //     label: "Health"
+                  // },
+                  // {
+                  //     value: count['Home'],
+                  //     color: "#f16690 ",
+                  //     highlight: "#FFC870 ",
+                  //     label: "Home"
+                  // }
+                  //
+                  //    ];
                      var ctx = document.getElementById("myChart");
                      var myDoughnutChart = new Chart(ctx, {
                        type: 'doughnut',
