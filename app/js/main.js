@@ -47,7 +47,7 @@ function onAuthenticated(token, authWindow) {
                         $.ajax({
                             cache : false,
                             type: "POST",
-                            url: 'http://199.175.49.116:5000//GetCategories',
+                            url: 'http://199.175.49.116:5000/GetCategories',
                             data: {text: text, name:name},
                             dataType: "json",
                             // jsonp: false,
